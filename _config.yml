@@ -1,0 +1,18 @@
+# Site settings
+title: Never stop exploring
+author: Alessandro Ronchi
+header-img: img/home-bg.jpg
+email: aleron75@gmail.com
+description: "A developer journey"
+baseurl: ""
+url: "http://aleron75.github.io"
+twitter_username: aleron75
+github_username:  aleron75
+
+# Build settings
+markdown: kramdown
+highlighter: pygments
+permalink: pretty
+gems: [jekyll-paginate]
+paginate: 7
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]

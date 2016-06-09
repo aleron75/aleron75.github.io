@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Never stop exploring</title>
+    <description>A developer journey</description>
+    <link>http://aleron75.github.io/</link>
+    <atom:link href="http://aleron75.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Thu, 09 Jun 2016 13:05:12 +0000</pubDate>
+    <lastBuildDate>Thu, 09 Jun 2016 13:05:12 +0000</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Never stop exploring</title>
+        <description>&lt;p&gt;Recently I attended &lt;a href=&quot;https://www.meet-magento.nl/&quot;&gt;Meet Magento NL 2016&lt;/a&gt; and it
+was my first time in the Netherlands.&lt;/p&gt;
+
+&lt;p&gt;One of the things that impressed me was the “exploring spirit” of Dutch people.&lt;/p&gt;
+
+&lt;p&gt;I had that feeling since I landed at Amsterdam Shiphol airport and it was
+confirmed as soon as I arrived at my host’s apartment where there were plenty of
+books, wall writings and pictures about never stopping exploring.&lt;/p&gt;
+
+&lt;p&gt;And that’s why I decided to give my new technical blog the title it has, because
+it represents my attitude towards technology and life in general.&lt;/p&gt;
+
+&lt;p&gt;In this blog I will collect my day by day discoverings about Magento and related
+technologies.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Photo credits: &lt;a href=&quot;https://www.flickr.com/photos/hereistom/&quot;&gt;Tom Jutte&lt;/a&gt; - &lt;a href=&quot;https://creativecommons.org/licenses/by-nc-nd/2.0/&quot;&gt;Creative Commons license&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate>
+        <link>http://aleron75.github.io/2016/06/09/never-stop-exploring/</link>
+        <guid isPermaLink="true">http://aleron75.github.io/2016/06/09/never-stop-exploring/</guid>
+        
+        <category>netherlands</category>
+        
+        <category>meet-magento</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
