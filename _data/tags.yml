@@ -3,3 +3,9 @@
 
 - slug: meet-magento
   name: Meet Magento
+
+- slug: magento2
+  name: Magento2
+
+- slug: runtime
+  name: Runtime
