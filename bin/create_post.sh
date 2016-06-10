@@ -22,7 +22,11 @@ echo "layout:   post" >> ${filename}
 echo "title:    \"${title}\"" >> ${filename}
 echo "date:     ${date} 00:00:00" >> ${filename}
 echo "author:   \"Alessandro Ronchi\"" >> ${filename}
+echo "header-img: \"img/${date}-${slug}.jpg\"" >> ${filename}
 echo "tags:     []" >> ${filename}
 echo "---" >> ${filename}
+echo "" >> ${filename}
+echo "---" >> ${filename}
+echo "Photo credits: [PHOTOGRAPHER_NAME](PHOTOGRAPHER_URL) - [Creative Commons license](https://creativecommons.org/licenses/by-nc-nd/2.0/)" >> ${filename}
 
 echo "Post created in ${filename}"
