@@ -5,8 +5,8 @@
     <description>A developer journey</description>
     <link>http://aleron75.github.io/</link>
     <atom:link href="http://aleron75.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 10 Jun 2016 21:03:53 +0000</pubDate>
-    <lastBuildDate>Fri, 10 Jun 2016 21:03:53 +0000</lastBuildDate>
+    <pubDate>Mon, 13 Jun 2016 13:46:59 +0000</pubDate>
+    <lastBuildDate>Mon, 13 Jun 2016 13:46:59 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -53,7 +53,7 @@ $app-&amp;gt;launch();
 
 &lt;p&gt;Wait what? We use an object to instantiate a factory object which in turn will be used to instantiate objects? Yes, remember: we are poking around, we aren’t doing things according to best practices.&lt;/p&gt;
 
-&lt;p&gt;In an ideal world we would write our code in a class; that class will be injected needed dependencies through its constructor; the object manager will do that work under the hood without any need for us to use it directly. 
+&lt;p&gt;In an ideal world we would write our code in a class; that class will be injected needed dependencies through its constructor; the object manager will do that work under the hood without any need for us to use it directly.
 But that’s not the scenario that occurs here in our PHP script.&lt;/p&gt;
 
 &lt;p&gt;So let’s ask the object manager to provide a product factory:&lt;/p&gt;
@@ -76,6 +76,34 @@ echo &#39;Total products:&#39;, $collection-&amp;gt;count(), PHP_EOL;
 &lt;p&gt;&lt;a href=&quot;https://gist.github.com/aleron75/648624e22744d5ed88037b6ac56ddf54&quot;&gt;Here is the complete code snippet&lt;/a&gt; in case you want to download it.&lt;/p&gt;
 
 &lt;p&gt;Note that what I’ve shown is still a &lt;strong&gt;work in progress&lt;/strong&gt; script, lacking things like initialization of &lt;strong&gt;application area&lt;/strong&gt; and &lt;strong&gt;user session&lt;/strong&gt;; I will post updates here in the future, so stay tuned and enjoy!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;EDIT&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Many thanks to my beloved mentor &lt;a href=&quot;https://twitter.com/vinaikopp&quot;&gt;Vinai Kopp&lt;/a&gt; who, after reading this post gave me some useful advices.&lt;/p&gt;
+
+&lt;p&gt;First advice: from PHP 5.5 we can use the &lt;code class=&quot;highlighter-rouge&quot;&gt;::class&lt;/code&gt; directive to get the fully qualified class name:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$objectManager-&amp;gt;create(\Magento\Catalog\Model\ProductFactory::class);`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;instead of:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$objectManager-&amp;gt;create(&#39;Magento\Catalog\Model\ProductFactory&#39;);`
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Second advice: we can instantiate the product collection factory directly instead of
+using the product factory and then get the collection:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$productCollectionFactory = $objectManager-&amp;gt;create(&#39;Magento\Catalog\Model\ResourceModel\Product\CollectionFactory&#39;);
+$collection = $productCollectionFactory-&amp;gt;create();
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Another interesting thought triggered by Vinai reading my post is that there is no &lt;code class=&quot;highlighter-rouge&quot;&gt;\Magento\Framework\AppInterface&lt;/code&gt; implementation for CLI applications; indeed the &lt;code class=&quot;highlighter-rouge&quot;&gt;bin/magento&lt;/code&gt; is a &lt;code class=&quot;highlighter-rouge&quot;&gt;SymfonyApplication&lt;/code&gt; and doesn’t implement the &lt;code class=&quot;highlighter-rouge&quot;&gt;AppInterface&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;He pushed me to open &lt;a href=&quot;https://github.com/magento/magento2/issues/5001&quot;&gt;an issue&lt;/a&gt; asking the Magento 2 team for such an implementation.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;p&gt;Photo credits: &lt;a href=&quot;https://www.flickr.com/photos/bambe1964/&quot;&gt;bambe1964&lt;/a&gt; - &lt;a href=&quot;https://creativecommons.org/licenses/by-nc-nd/2.0/&quot;&gt;Creative Commons license&lt;/a&gt;&lt;/p&gt;

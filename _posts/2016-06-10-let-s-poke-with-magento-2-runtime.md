@@ -45,7 +45,7 @@ Now that we have our shiny object manager, we can instantiate a **product factor
 
 Wait what? We use an object to instantiate a factory object which in turn will be used to instantiate objects? Yes, remember: we are poking around, we aren't doing things according to best practices.
 
-In an ideal world we would write our code in a class; that class will be injected needed dependencies through its constructor; the object manager will do that work under the hood without any need for us to use it directly. 
+In an ideal world we would write our code in a class; that class will be injected needed dependencies through its constructor; the object manager will do that work under the hood without any need for us to use it directly.
 But that's not the scenario that occurs here in our PHP script.
 
 So let's ask the object manager to provide a product factory:
@@ -64,6 +64,28 @@ That's it!
 [Here is the complete code snippet](https://gist.github.com/aleron75/648624e22744d5ed88037b6ac56ddf54) in case you want to download it.
 
 Note that what I've shown is still a **work in progress** script, lacking things like initialization of **application area** and **user session**; I will post updates here in the future, so stay tuned and enjoy!
+
+**EDIT**
+
+Many thanks to my beloved mentor [Vinai Kopp](https://twitter.com/vinaikopp) who, after reading this post gave me some useful advices.
+
+First advice: from PHP 5.5 we can use the `::class` directive to get the fully qualified class name:
+
+    $objectManager->create(\Magento\Catalog\Model\ProductFactory::class);`
+
+instead of:
+
+    $objectManager->create('Magento\Catalog\Model\ProductFactory');`
+
+Second advice: we can instantiate the product collection factory directly instead of
+using the product factory and then get the collection:
+
+    $productCollectionFactory = $objectManager->create('Magento\Catalog\Model\ResourceModel\Product\CollectionFactory');
+    $collection = $productCollectionFactory->create();
+
+Another interesting thought triggered by Vinai reading my post is that there is no `\Magento\Framework\AppInterface` implementation for CLI applications; indeed the `bin/magento` is a `SymfonyApplication` and doesn't implement the `AppInterface`.
+
+He pushed me to open [an issue](https://github.com/magento/magento2/issues/5001) asking the Magento 2 team for such an implementation.   
 
 ---
 Photo credits: [bambe1964](https://www.flickr.com/photos/bambe1964/) - [Creative Commons license](https://creativecommons.org/licenses/by-nc-nd/2.0/)
