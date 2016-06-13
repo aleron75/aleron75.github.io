@@ -5,8 +5,8 @@
     <description>A developer journey</description>
     <link>http://aleron75.github.io/</link>
     <atom:link href="http://aleron75.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 13 Jun 2016 13:46:59 +0000</pubDate>
-    <lastBuildDate>Mon, 13 Jun 2016 13:46:59 +0000</lastBuildDate>
+    <pubDate>Mon, 13 Jun 2016 16:48:16 +0000</pubDate>
+    <lastBuildDate>Mon, 13 Jun 2016 16:48:16 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -96,7 +96,7 @@ echo &#39;Total products:&#39;, $collection-&amp;gt;count(), PHP_EOL;
 &lt;p&gt;Second advice: we can instantiate the product collection factory directly instead of
 using the product factory and then get the collection:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$productCollectionFactory = $objectManager-&amp;gt;create(&#39;Magento\Catalog\Model\ResourceModel\Product\CollectionFactory&#39;);
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$productCollectionFactory = $objectManager-&amp;gt;create(\Magento\Catalog\Model\ResourceModel\Product\CollectionFactory::class);
 $collection = $productCollectionFactory-&amp;gt;create();
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;

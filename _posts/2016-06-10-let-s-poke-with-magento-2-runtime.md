@@ -80,7 +80,7 @@ instead of:
 Second advice: we can instantiate the product collection factory directly instead of
 using the product factory and then get the collection:
 
-    $productCollectionFactory = $objectManager->create('Magento\Catalog\Model\ResourceModel\Product\CollectionFactory');
+    $productCollectionFactory = $objectManager->create(\Magento\Catalog\Model\ResourceModel\Product\CollectionFactory::class);
     $collection = $productCollectionFactory->create();
 
 Another interesting thought triggered by Vinai reading my post is that there is no `\Magento\Framework\AppInterface` implementation for CLI applications; indeed the `bin/magento` is a `SymfonyApplication` and doesn't implement the `AppInterface`.
