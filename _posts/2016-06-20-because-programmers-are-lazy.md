@@ -4,7 +4,7 @@ title:    "Because programmers are lazy"
 date:     2016-06-20 00:00:00
 author:   "Alessandro Ronchi"
 header-img: "img/2016-06-20-because-programmers-are-lazy.jpg"
-tags:     []
+tags:     [json, tools]
 ---
 
 It's a simple story: I wanted to be able to put **comments in JSON files**,

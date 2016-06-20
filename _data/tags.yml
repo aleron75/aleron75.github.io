@@ -1,3 +1,6 @@
+- slug: json
+  name: JSON
+
 - slug: netherlands
   name: Netherlands
 
@@ -9,3 +12,6 @@
 
 - slug: runtime
   name: Runtime
+
+- slug: tools
+  name: Tools
