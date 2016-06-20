@@ -25,7 +25,7 @@ So I implemented it and just because commented lines brought to **lists with
 trailing commas**, I also added some lines of code to wipe that trailing commas
 too.
 
-And that's almost it, here is the script with instructions of how to install
+And that's almost it, here is the script with instructions on how to install
 and use it: [https://github.com/aleron75/jsonc](https://github.com/aleron75/jsonc)
 
 There is a positive side effect: this script assumes you work on a separate file

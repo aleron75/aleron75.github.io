@@ -5,8 +5,8 @@
     <description>A developer journey</description>
     <link>http://aleron75.github.io/</link>
     <atom:link href="http://aleron75.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 20 Jun 2016 12:20:06 +0000</pubDate>
-    <lastBuildDate>Mon, 20 Jun 2016 12:20:06 +0000</lastBuildDate>
+    <pubDate>Mon, 20 Jun 2016 12:21:20 +0000</pubDate>
+    <lastBuildDate>Mon, 20 Jun 2016 12:21:20 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -29,7 +29,7 @@ solution.&lt;/p&gt;
 trailing commas&lt;/strong&gt;, I also added some lines of code to wipe that trailing commas
 too.&lt;/p&gt;
 
-&lt;p&gt;And that’s almost it, here is the script with instructions of how to install
+&lt;p&gt;And that’s almost it, here is the script with instructions on how to install
 and use it: &lt;a href=&quot;https://github.com/aleron75/jsonc&quot;&gt;https://github.com/aleron75/jsonc&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;There is a positive side effect: this script assumes you work on a separate file
