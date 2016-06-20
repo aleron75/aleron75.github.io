@@ -5,9 +5,55 @@
     <description>A developer journey</description>
     <link>http://aleron75.github.io/</link>
     <atom:link href="http://aleron75.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 13 Jun 2016 16:48:16 +0000</pubDate>
-    <lastBuildDate>Mon, 13 Jun 2016 16:48:16 +0000</lastBuildDate>
+    <pubDate>Mon, 20 Jun 2016 12:14:25 +0000</pubDate>
+    <lastBuildDate>Mon, 20 Jun 2016 12:14:25 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Because programmers are lazy</title>
+        <description>&lt;p&gt;It’s a simple story: I wanted to be able to put &lt;strong&gt;comments in JSON files&lt;/strong&gt;,
+specifically in my composer.json files.&lt;/p&gt;
+
+&lt;p&gt;Why? Because sometimes I want to give a try to third-party without deleting
+references to them if I decide not to keep them in my composer.json file.&lt;/p&gt;
+
+&lt;p&gt;Or maybe sometimes I simply want to include comments above some dependencies.&lt;/p&gt;
+
+&lt;p&gt;You probably know that it’s something not allowed by JSON parsers.&lt;/p&gt;
+
+&lt;p&gt;I thought that implementing a simple script that wipes out lines starting with
+the &lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt; character would have been faster that searching for some existing
+solution.&lt;/p&gt;
+
+&lt;p&gt;So I implemented it and just because commented lines brought to &lt;strong&gt;lists with
+trailing commas&lt;/strong&gt;, I also added some lines of code to wipe that trailing commas
+too.&lt;/p&gt;
+
+&lt;p&gt;And that’s almost it, here is the script with instructions of how to install
+and use it: &lt;a href=&quot;https://github.com/aleron75/jsonc&quot;&gt;https://github.com/aleron75/jsonc&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;There is a positive side effect: this script assumes you work on a separate file
+with &lt;code class=&quot;highlighter-rouge&quot;&gt;jsonc&lt;/code&gt; extension and generates the corresponding well-formed &lt;code class=&quot;highlighter-rouge&quot;&gt;json&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;You can keep the &lt;code class=&quot;highlighter-rouge&quot;&gt;json&lt;/code&gt; file under version control and ignore the &lt;code class=&quot;highlighter-rouge&quot;&gt;jsonc&lt;/code&gt;; this
+way each developer can keep his/her version of the &lt;code class=&quot;highlighter-rouge&quot;&gt;jsonc&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;It’s not rocket science and since I wrote the script in minutes it it likely
+that it won’t work for everyone.&lt;/p&gt;
+
+&lt;p&gt;In that case: contributions are welcome :)&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Photo credits: &lt;a href=&quot;https://www.flickr.com/photos/guppiecat/&quot;&gt;Josh More&lt;/a&gt; - &lt;a href=&quot;https://creativecommons.org/licenses/by-nc-nd/2.0/&quot;&gt;Creative Commons license&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Mon, 20 Jun 2016 00:00:00 +0000</pubDate>
+        <link>http://aleron75.github.io/2016/06/20/because-programmers-are-lazy/</link>
+        <guid isPermaLink="true">http://aleron75.github.io/2016/06/20/because-programmers-are-lazy/</guid>
+        
+        
+      </item>
     
       <item>
         <title>Let&#39;s poke with Magento 2 runtime</title>
