@@ -35,5 +35,6 @@ Thus I wrote a simple **bash script** that converts different text outputs in di
 You can also download it [from here](https://gist.github.com/aleron75/5b35f8b670ad24bffbca48c0370135ec).
 
 Enjoy!
+
 ---
 Photo credits: [Christiaan Colen](https://www.flickr.com/photos/132889348@N07/) - [Creative Commons license](https://creativecommons.org/licenses/by-nc-nd/2.0/)
