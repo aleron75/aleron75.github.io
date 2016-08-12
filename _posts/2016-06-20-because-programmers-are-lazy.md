@@ -41,5 +41,13 @@ In that case: contributions are welcome :)
 
 Enjoy!
 
+**EDIT**
+
+I assume that you, like me, manually edit the `composer.json` file; that
+probably, I admit, isn't a best practice.
+
+Thus, if you use the `composer require` command that takes care of updating the
+`composer.json` file, I discourage you from using the `jsonc` script.
+
 ---
 Photo credits: [Josh More](https://www.flickr.com/photos/guppiecat/) - [Creative Commons license](https://creativecommons.org/licenses/by-nc-nd/2.0/)

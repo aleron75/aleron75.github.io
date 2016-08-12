@@ -5,8 +5,8 @@
     <description>A developer journey</description>
     <link>http://aleron75.github.io/</link>
     <atom:link href="http://aleron75.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 12 Aug 2016 12:59:40 +0000</pubDate>
-    <lastBuildDate>Fri, 12 Aug 2016 12:59:40 +0000</lastBuildDate>
+    <pubDate>Fri, 12 Aug 2016 13:07:18 +0000</pubDate>
+    <lastBuildDate>Fri, 12 Aug 2016 13:07:18 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
@@ -98,6 +98,14 @@ that it won’t work for everyone.&lt;/p&gt;
 &lt;p&gt;In that case: contributions are welcome :)&lt;/p&gt;
 
 &lt;p&gt;Enjoy!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;EDIT&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I assume that you, like me, manually edit the &lt;code class=&quot;highlighter-rouge&quot;&gt;composer.json&lt;/code&gt; file; that
+probably, I admit, isn’t a best practice.&lt;/p&gt;
+
+&lt;p&gt;Thus, if you use the &lt;code class=&quot;highlighter-rouge&quot;&gt;composer require&lt;/code&gt; command that takes care of updating the
+&lt;code class=&quot;highlighter-rouge&quot;&gt;composer.json&lt;/code&gt; file, I discourage you from using the &lt;code class=&quot;highlighter-rouge&quot;&gt;jsonc&lt;/code&gt; script.&lt;/p&gt;
 
 &lt;hr /&gt;
 &lt;p&gt;Photo credits: &lt;a href=&quot;https://www.flickr.com/photos/guppiecat/&quot;&gt;Josh More&lt;/a&gt; - &lt;a href=&quot;https://creativecommons.org/licenses/by-nc-nd/2.0/&quot;&gt;Creative Commons license&lt;/a&gt;&lt;/p&gt;
