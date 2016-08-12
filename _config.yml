@@ -5,6 +5,7 @@ header-img: img/home-bg.jpg
 email: aleron75@gmail.com
 description: "A developer journey"
 baseurl: ""
+#baseurl: "./" # for local static testing
 url: "http://aleron75.github.io"
 twitter_username: aleron75
 github_username:  aleron75

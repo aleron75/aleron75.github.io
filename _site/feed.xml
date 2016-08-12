@@ -5,9 +5,61 @@
     <description>A developer journey</description>
     <link>http://aleron75.github.io/</link>
     <atom:link href="http://aleron75.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Thu, 04 Aug 2016 08:01:13 +0000</pubDate>
-    <lastBuildDate>Thu, 04 Aug 2016 08:01:13 +0000</lastBuildDate>
+    <pubDate>Fri, 12 Aug 2016 12:36:11 +0000</pubDate>
+    <lastBuildDate>Fri, 12 Aug 2016 12:36:11 +0000</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>Magento 2 script for setup upgrade</title>
+        <description>&lt;p&gt;To determine whether your current &lt;strong&gt;Magento 2&lt;/strong&gt; instance needs &lt;strong&gt;upgrade scripts&lt;/strong&gt; to run you can use the following CLI command:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bin/magento setup:db:status
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The output can either be something like this (if upgrade is needed):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The module code base doesn&#39;t match the DB schema and data.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;or like this (if no upgrade is needed):&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;All modules are up to date.    
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Unfortunately, at date, the Magento 2 CLI doesn’t return &lt;strong&gt;different exit codes&lt;/strong&gt; in case of different outcomes, that’s something that can be useful especially if you use some &lt;strong&gt;CI or deploy tools&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thus I wrote a simple &lt;strong&gt;bash script&lt;/strong&gt; that converts different text outputs in different exit codes:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# use --no-ansi to avoid color characters&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;bin/magento setup:db:status --no-ansi&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[[&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;${&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;message&lt;/span&gt;:0:3&lt;span class=&quot;k&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;All&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]]&lt;/span&gt;;
+&lt;span class=&quot;k&quot;&gt;then
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0 &lt;span class=&quot;c&quot;&gt;# 0 not required being default exit code; used for clarity&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;else
+  &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+&lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;You can also download it &lt;a href=&quot;https://gist.github.com/aleron75/5b35f8b670ad24bffbca48c0370135ec&quot;&gt;from here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;enjoy&quot;&gt;Enjoy!&lt;/h2&gt;
+&lt;p&gt;Photo credits: &lt;a href=&quot;https://www.flickr.com/photos/132889348@N07/&quot;&gt;Christiaan Colen&lt;/a&gt; - &lt;a href=&quot;https://creativecommons.org/licenses/by-nc-nd/2.0/&quot;&gt;Creative Commons license&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+        <link>http://aleron75.github.io/2016/08/12/magento2-script-for-setup-upgrade/</link>
+        <guid isPermaLink="true">http://aleron75.github.io/2016/08/12/magento2-script-for-setup-upgrade/</guid>
+        
+        <category>magento2</category>
+        
+        <category>tools</category>
+        
+        
+      </item>
     
       <item>
         <title>Because programmers are lazy</title>
