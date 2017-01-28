@@ -1,3 +1,6 @@
+- slug: email
+  name: Email
+
 - slug: json
   name: JSON
 
@@ -6,6 +9,9 @@
 
 - slug: meet-magento
   name: Meet Magento
+
+- slug: magento
+  name: Magento
 
 - slug: magento2
   name: Magento2

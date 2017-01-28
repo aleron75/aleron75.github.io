@@ -5,9 +5,116 @@
     <description>A developer journey</description>
     <link>http://aleron75.github.io/</link>
     <atom:link href="http://aleron75.github.io/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Fri, 12 Aug 2016 13:07:18 +0000</pubDate>
-    <lastBuildDate>Fri, 12 Aug 2016 13:07:18 +0000</lastBuildDate>
-    <generator>Jekyll v3.1.6</generator>
+    <pubDate>Sat, 28 Jan 2017 11:02:58 +0000</pubDate>
+    <lastBuildDate>Sat, 28 Jan 2017 11:02:58 +0000</lastBuildDate>
+    <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>Modifiers in Magento e-mail templates</title>
+        <description>&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt; to apply URL-encoding to a variable in an e-mail template use the following syntax:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;{var&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;order.customer_email|escape:url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;|escape:url&lt;/code&gt; part is a so called &lt;strong&gt;modifier&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;It can seem incredible but after many years working with Magento I never needed to use modifiers in e-mail templates.&lt;/p&gt;
+
+&lt;p&gt;It’s not unlikely you never heard about this functionality because there aren’t any usage examples in Magento’s email templates;
+furthermore searching in Google didn’t produce any useful result for me.&lt;/p&gt;
+
+&lt;p&gt;To understand the modifier syntax and discover how modifiers work let’s look at the following methods from &lt;code class=&quot;highlighter-rouge&quot;&gt;Mage_Core_Model_Email_Template_Filter&lt;/code&gt; class:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public function varDirective($construction)
+{
+    if (count($this-&amp;gt;_templateVars)==0) {
+        // If template preprocessing
+        return $construction[0];
+    }
+
+    $parts = explode('|', $construction[2], 2);
+    if (2 === count($parts)) {
+        list($variableName, $modifiersString) = $parts;
+        return $this-&amp;gt;_amplifyModifiers($this-&amp;gt;_getVariable($variableName, ''), $modifiersString);
+    }
+    return $this-&amp;gt;_getVariable($construction[2], '');
+}
+
+protected function _amplifyModifiers($value, $modifiers)
+{
+    Mage::log(print_r($modifiers, 1), null, 'filter.log', true);
+    foreach (explode('|', $modifiers) as $part) {
+        if (empty($part)) {
+            continue;
+        }
+        $params   = explode(':', $part);
+        Mage::log(print_r($params, 1), null, 'filter.log', true);
+        $modifier = array_shift($params);
+        if (isset($this-&amp;gt;_modifiers[$modifier])) {
+            $callback = $this-&amp;gt;_modifiers[$modifier];
+            if (!$callback) {
+                $callback = $modifier;
+            }
+            array_unshift($params, $value);
+            $value = call_user_func_array($callback, $params);
+        }
+    }
+    return $value;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;varDirective()&lt;/code&gt; method splits the &lt;code class=&quot;highlighter-rouge&quot;&gt;var&lt;/code&gt; value on pipe &lt;code class=&quot;highlighter-rouge&quot;&gt;|&lt;/code&gt; char and, in case, calls the &lt;code class=&quot;highlighter-rouge&quot;&gt;_amplifyModifiers()&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;_amplifyModifiers()&lt;/code&gt; splits &lt;code class=&quot;highlighter-rouge&quot;&gt;$value&lt;/code&gt; on colon &lt;code class=&quot;highlighter-rouge&quot;&gt;:&lt;/code&gt; and applies the proper modifier to the value.&lt;/p&gt;
+
+&lt;p&gt;The code responsible for applying the &lt;code class=&quot;highlighter-rouge&quot;&gt;escape&lt;/code&gt; modifier is shown below:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public function modifierEscape($value, $type = 'html')
+{
+    switch ($type) {
+        case 'html':
+            return htmlspecialchars($value, ENT_QUOTES);
+
+        case 'htmlentities':
+            return htmlentities($value, ENT_QUOTES);
+
+        case 'url':
+            return rawurlencode($value);
+    }
+    return $value;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;As we can see we can apply one of the following transformations to variable values in e-mail template:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;html&lt;/code&gt; to convert special characters to HTML entities&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;htmlentities&lt;/code&gt; to convert all applicable characters to HTML entities&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;url&lt;/code&gt; to URL-encode the value&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The only other modifier that can be used out of the box is the &lt;code class=&quot;highlighter-rouge&quot;&gt;nl2br&lt;/code&gt; that is used to insert HTML line breaks before all new line characters in a string.&lt;/p&gt;
+
+&lt;p&gt;Note: in &lt;strong&gt;Magento 2&lt;/strong&gt; there is a &lt;code class=&quot;highlighter-rouge&quot;&gt;\Magento\Framework\Filter\Template\Filter&lt;/code&gt; class that seems very similar to the one of Magento 1; even if I didn’t give it a try I suppose the same syntax apply to Magento 2 e-mail templates as well.&lt;/p&gt;
+
+&lt;p&gt;Enjoy!&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;Photo credits: &lt;a href=&quot;https://www.flickr.com/photos/makenosound/&quot;&gt;Max Wheeler&lt;/a&gt; - &lt;a href=&quot;https://creativecommons.org/licenses/by-nc-nd/2.0/&quot;&gt;Creative Commons license&lt;/a&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 28 Jan 2017 00:00:00 +0000</pubDate>
+        <link>http://aleron75.github.io/2017/01/28/modifiers-in-magento-e-mail-templates/</link>
+        <guid isPermaLink="true">http://aleron75.github.io/2017/01/28/modifiers-in-magento-e-mail-templates/</guid>
+        
+        <category>magento</category>
+        
+        <category>email</category>
+        
+        
+      </item>
     
       <item>
         <title>Magento 2 script for setup upgrade</title>
@@ -19,7 +126,7 @@
 
 &lt;p&gt;The output can either be something like this (if upgrade is needed):&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The module code base doesn&#39;t match the DB schema and data.
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;The module code base doesn't match the DB schema and data.
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -122,7 +229,7 @@ probably, I admit, isn’t a best practice.&lt;/p&gt;
       </item>
     
       <item>
-        <title>Let&#39;s poke with Magento 2 runtime</title>
+        <title>Let's poke with Magento 2 runtime</title>
         <description>&lt;p&gt;One of my favorite way of learning Magento framework was that of initializing a &lt;strong&gt;Magento runtime&lt;/strong&gt; and poking with it through the &lt;strong&gt;command line&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;I usually recommend writing &lt;strong&gt;shell scripts as best practice&lt;/strong&gt; for Magento 1 instead of using &lt;a href=&quot;https://gist.github.com/search?utf8=%E2%9C%93&amp;amp;q=runtime+user%3Aaleron75&amp;amp;ref=searchresults&quot;&gt;bare minimum PHP scripts&lt;/a&gt;.&lt;/p&gt;
@@ -132,7 +239,7 @@ probably, I admit, isn’t a best practice.&lt;/p&gt;
 &lt;p&gt;Here is a first example of a PHP script that can be put in Magento 2 installation directory (the one that contains the &lt;code class=&quot;highlighter-rouge&quot;&gt;pub&lt;/code&gt; subdirectory):&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;try {
-    require __DIR__ . &#39;/app/bootstrap.php&#39;;
+    require __DIR__ . '/app/bootstrap.php';
 } catch (\Exception $e) {
     echo $e-&amp;gt;getMessage() . PHP_EOL;
     exit(1);
@@ -140,7 +247,7 @@ probably, I admit, isn’t a best practice.&lt;/p&gt;
 
 $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
 /** @var \Magento\Framework\App\Http $app */
-$app = $bootstrap-&amp;gt;createApplication(&#39;Magento\Framework\App\Http&#39;);
+$app = $bootstrap-&amp;gt;createApplication('Magento\Framework\App\Http');
 $app-&amp;gt;launch();
 
 // YOUR CODE HERE
@@ -170,7 +277,7 @@ But that’s not the scenario that occurs here in our PHP script.&lt;/p&gt;
 
 &lt;p&gt;So let’s ask the object manager to provide a product factory:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$productFactory = $objectManager-&amp;gt;create(&#39;Magento\Catalog\Model\ProductFactory&#39;);
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$productFactory = $objectManager-&amp;gt;create('Magento\Catalog\Model\ProductFactory');
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -179,7 +286,7 @@ But that’s not the scenario that occurs here in our PHP script.&lt;/p&gt;
 &lt;p&gt;Once we have our &lt;code class=&quot;highlighter-rouge&quot;&gt;$productFactory&lt;/code&gt; we can get a product collection and count results:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$collection = $productFactory-&amp;gt;create()-&amp;gt;getCollection();
-echo &#39;Total products:&#39;, $collection-&amp;gt;count(), PHP_EOL;
+echo 'Total products:', $collection-&amp;gt;count(), PHP_EOL;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -201,7 +308,7 @@ echo &#39;Total products:&#39;, $collection-&amp;gt;count(), PHP_EOL;
 
 &lt;p&gt;instead of:&lt;/p&gt;
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$objectManager-&amp;gt;create(&#39;Magento\Catalog\Model\ProductFactory&#39;);`
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$objectManager-&amp;gt;create('Magento\Catalog\Model\ProductFactory');`
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
