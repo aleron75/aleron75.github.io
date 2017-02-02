@@ -89,7 +89,7 @@ As we can see we can apply one of the following transformations to variable valu
 
 The only other modifier that can be used out of the box is the `nl2br` that is used to insert HTML line breaks before all new line characters in a string.
 
-Note: in **Magento 2** there is a `\Magento\Framework\Filter\Template\Filter` class that seems very similar to the one of Magento 1; even if I didn't give it a try I suppose the same syntax apply to Magento 2 e-mail templates as well.
+Note: in **Magento 2** there is a `\Magento\Framework\Filter\Template\Filter` class that seems very similar to the one of Magento 1; even if I didn't give it a try I suppose the same syntax applies to Magento 2 e-mail templates as well.
 
 Enjoy!
 
