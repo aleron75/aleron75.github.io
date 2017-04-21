@@ -1,11 +1,11 @@
+- slug: cli
+  name: CLI
+
 - slug: email
   name: Email
 
 - slug: json
   name: JSON
-
-- slug: netherlands
-  name: Netherlands
 
 - slug: meet-magento
   name: Meet Magento
@@ -15,6 +15,9 @@
 
 - slug: magento2
   name: Magento2
+
+- slug: netherlands
+  name: Netherlands
 
 - slug: runtime
   name: Runtime
