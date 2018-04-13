@@ -1,26 +1,32 @@
 - slug: cli
-  name: CLI
+  name: cli
 
 - slug: email
-  name: Email
+  name: email
 
 - slug: json
-  name: JSON
+  name: json
 
 - slug: meet-magento
-  name: Meet Magento
+  name: meet-magento
 
 - slug: magento
-  name: Magento
+  name: magento
 
 - slug: magento2
-  name: Magento2
+  name: magento2
 
 - slug: netherlands
-  name: Netherlands
+  name: netherlands
 
 - slug: runtime
-  name: Runtime
+  name: runtime
 
 - slug: tools
-  name: Tools
+  name: tools
+
+- slug: best-practices
+  name: best-practices  
+
+- slug: plugins
+  name: plugins
