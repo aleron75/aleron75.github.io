@@ -1,3 +1,6 @@
+- slug: best-practices
+  name: best-practices  
+
 - slug: cli
   name: cli
 
@@ -22,11 +25,11 @@
 - slug: runtime
   name: runtime
 
+- slug: testing
+  name: testing
+
 - slug: tools
   name: tools
-
-- slug: best-practices
-  name: best-practices  
 
 - slug: plugins
   name: plugins
