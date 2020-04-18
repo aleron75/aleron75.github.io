@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Let's poke with Magento 2 runtime"
-date:     2016-06-10 00:00:00
+date:     2016-06-10 00:00:00+0000
 author:   "Alessandro Ronchi"
 header-img: "img/2016-06-10-let-s-poke-with-magento-2-runtime.jpg"
 tags:     [magento2, runtime]

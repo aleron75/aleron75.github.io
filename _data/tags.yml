@@ -33,3 +33,9 @@
 
 - slug: plugins
   name: plugins
+
+- slug: observers
+  name: observers
+
+- slug: service-classes
+  name: service-classes

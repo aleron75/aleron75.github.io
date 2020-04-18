@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Why we test code"
-date:     2018-09-26 00:00:00
+date:     2018-09-26 00:00:00+0000
 author:   "Alessandro Ronchi"
 header-img: "img/2018-09-26-why-we-test-code.jpg"
 tags:     [testing]

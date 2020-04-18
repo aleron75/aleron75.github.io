@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Because programmers are lazy"
-date:     2016-06-20 00:00:00
+date:     2016-06-20 00:00:00+0000
 author:   "Alessandro Ronchi"
 header-img: "img/2016-06-20-because-programmers-are-lazy.jpg"
 tags:     [json, tools]

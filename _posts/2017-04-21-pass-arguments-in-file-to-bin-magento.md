@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Pass arguments in file to bin/magento"
-date:     2017-04-21 00:00:00
+date:     2017-04-21 00:00:00+0000
 author:   "Alessandro Ronchi"
 header-img: "img/2017-04-21-pass-arguments-in-file-to-bin-magento.jpg"
 tags:     [magento2, cli]

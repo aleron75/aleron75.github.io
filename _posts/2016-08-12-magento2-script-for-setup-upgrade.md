@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Magento 2 script for setup upgrade"
-date:     2016-08-12 00:00:00
+date:     2016-08-12 00:00:00+0000
 author:   "Alessandro Ronchi"
 header-img: "img/2016-08-12-magento2-script-for-setup-upgrade.jpg"
 tags:     [magento2, tools]

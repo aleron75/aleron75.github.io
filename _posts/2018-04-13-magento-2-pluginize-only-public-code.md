@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Magento 2: pluginize only public code"
-date:     2018-04-13 00:00:00
+date:     2018-04-13 00:00:00+0000
 author:   "Alessandro Ronchi"
 header-img: "img/best-practices.jpg"
 tags:     [magento2, best-practices, plugins]

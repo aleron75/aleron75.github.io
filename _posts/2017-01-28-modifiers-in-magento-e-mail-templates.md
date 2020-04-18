@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Modifiers in Magento e-mail templates"
-date:     2017-01-28 00:00:00
+date:     2017-01-28 00:00:00+0000
 author:   "Alessandro Ronchi"
 header-img: "img/2017-01-28-modifiers-in-magento-e-mail-templates.jpg"
 tags:     [magento, email]
