@@ -106,8 +106,8 @@ thus better use an **imperative** verb (e.g.: `doSomething`).
 An **event** is something that’s happened in the past, 
 thus better use a **past tense** verb (e.g.: `somethingHappened`).
 
-If you look at how events are named in Magento 2, 
-they often break this rule (e.g.: `store_save_after` is used instead of `store_saved`).
+~~If you look at how events are named in Magento 2, 
+they often break this rule (e.g.: `store_save_after` is used instead of `store_saved`).~~ See Vinai's comment below.
 
 ## Off-topic note
 **Commits** are commands, that’s why commit messages should be written using **imperative** verbs.
