@@ -39,3 +39,6 @@
 
 - slug: service-classes
   name: service-classes
+
+- slug: helpers
+  name: helpers
