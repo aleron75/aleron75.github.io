@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Magento 2: Service class vs Helper"
-date:     2020-05-18 07:00:00+0000
+date:     2020-05-18 05:00:00+0000
 author:   "Alessandro Ronchi"
 header-img: "img/best-practices.jpg"
 tags:     [magento2, best-practices, helpers, service-classes]
