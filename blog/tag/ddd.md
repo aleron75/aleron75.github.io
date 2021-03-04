@@ -1,6 +1,6 @@
 ---
 layout: blog_by_tag
-title: 'Articles by tag: Domain-Driven Design'
+title: 'Articles by tag: DDD'
 tag: ddd
 nonav: true
 ---
