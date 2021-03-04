@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "DDD journey: aggregates and repositories"
-date:     2020-03-11 05:00:00+0000
+date:     2021-03-04 05:00:00+0000
 author:   "Alessandro Ronchi"
 header-img: "img/ddd-journey.jpg"
 tags:     [ddd]
@@ -14,7 +14,7 @@ During our sessions, I took the chance to ask the author some questions that eme
 
 In the series of my short **DDD journey** articles, I'll summarize some of the **insights** that came out speaking with the author. 
 
-I hope these articles can be helpful to those that read the book; I warmly recommend it if you haven't already done.
+I hope these articles can be helpful to those that read the book; I warmly recommend it if you haven't already done: [get it with a special discount](https://leanpub.com/web-application-architecture/c/RONCHI) that the author reserved to the readers of my blog!
 
 ## How to save child entities of an aggregate?
 Let's first recap what is an aggregate with [Martin Fowler's definition](https://martinfowler.com/bliki/DDD_Aggregate.html):
