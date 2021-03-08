@@ -37,4 +37,4 @@ To solve the problem, I gave up using Eloquent, deleted `OrderLinesRepository`, 
 
 Enjoy!
 ---
-Photo credits: [Dylan Gillis](https://unsplash.com/@dylandgillis?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText) - [Creative Commons license](https://creativecommons.org/licenses/by-nc-nd/2.0/)
+Photo credits: [Christina @ wocintechchat.com](https://unsplash.com/@wocintechchat?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText) - [Creative Commons license](https://creativecommons.org/licenses/by-nc-nd/2.0/)
