@@ -31,7 +31,7 @@ final class Email
     private function __construct(string $address)
     {
         $emailRegEx = 'TODO: your preferred email validation regex';
-        if (0 === \preg_match($emailRegEx, $address)) {
+        if (0 === preg_match($emailRegEx, $address)) {
             throw new InvalidArgumentException('invalid email address');
         }
 
